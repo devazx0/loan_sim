@@ -1,0 +1,38 @@
+{
+  "name": "load_sim",
+  "version": "1.0.0",
+  "description": "Simulated Nigerian digital lending backend (modular monolith)",
+  "type": "module",
+  "scripts": {
+    "dev": "node api.js && bun run src/server.ts",
+    "start": "node api.js && bun run src/server.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "bunx eslint src tests scripts prisma/seed.ts prisma/seed-test.ts",
+    "test": "bun run scripts/run-tests.ts",
+    "test:unit": "bun test tests/unit",
+    "test:integration": "bun test tests/integration",
+    "prisma:generate": "bunx prisma generate",
+    "prisma:migrate": "bunx prisma migrate dev",
+    "prisma:deploy": "bunx prisma migrate deploy",
+    "db:seed": "bun run prisma/seed.ts",
+    "db:reset": "bunx prisma migrate reset --force"
+  },
+  "dependencies": {
+    "hono": "^4.7.0",
+    "@hono/zod-validator": "^0.4.3",
+    "@prisma/client": "^5.22.0",
+    "zod": "^3.23.8",
+    "bcryptjs": "^2.4.3",
+    "jose": "^5.9.6",
+    "pino": "^9.5.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/bun": "^1.1.10",
+    "eslint": "^9.13.0",
+    "prisma": "^5.22.0",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.70.0"
+  }
+}
